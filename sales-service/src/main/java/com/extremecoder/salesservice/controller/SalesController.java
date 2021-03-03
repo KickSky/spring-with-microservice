@@ -23,4 +23,9 @@ public class SalesController {
         return new MyOrder(105, Collections.singletonList(item));
     }
 
+    @GetMapping("/sales/check-item-request")
+    public String checkItemRequest() {
+        return restTemplate.getForObject("http://ITEM-SERVICE/item/get-instance", String.class);
+    }
+
 }
